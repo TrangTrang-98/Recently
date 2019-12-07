@@ -49,9 +49,14 @@ namespace Infrastructure.Persistence.Repository
 
         public void Update(T entity)
         {
-            _context.Attach(entity).State = EntityState.Modified;
-           
-             _context.SaveChanges();
+            try
+            {
+                Context.Set<T>().Update(entity);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Update() Unexpected: " + e);
+            }
             
         }
 
