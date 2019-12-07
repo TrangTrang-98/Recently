@@ -29,12 +29,33 @@
                 <input asp-for="Patient.Birthday" class="form-control" />
                 <span asp-validation-for="Patient.Birthday" class="text-danger"></span>
             </div>
+            
+
             <div class="form-group">
-                
-                <label asp-for="Patient.Address" class="control-label"></label>
-                <input asp-for="Patient.Address" class="form-control" />
-                <span asp-validation-for="Patient.Address" class="text-danger"></span> 
-            </div> 
+                <label asp-for="@Model.numhouse" class="control-label"></label>
+                <input asp-for="@Model.numhouse" class="form-control" />
+                <span asp-validation-for="@Model.numhouse" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model." class="control-label"></label>
+                <input asp-for="@Model.street" class="form-control" />
+                <span asp-validation-for="@Model.street" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.district" class="control-label"></label>
+                <input asp-for="@Model.district" class="form-control" />
+                <span asp-validation-for="@Model.district" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.city" class="control-label"></label>
+                <input asp-for="@Model.city" class="form-control" />
+                <span asp-validation-for="@Model.city" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.country" class="control-label"></label>
+                <input asp-for="@Model.country" class="form-control" />
+                <span asp-validation-for="@Model.country" class="text-danger"></span> 
+            </div>
                
             <div class="form-group">
                 <label asp-for="Patient.Phone" class="control-label"></label>
