@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ApplicationCore.Entities.PatientAggregate;
+using ApplicationCore.Entities;
+
 namespace Examining.Pages.Login.Patients
 {
     public class EditModel : PageModel
@@ -16,6 +18,16 @@ namespace Examining.Pages.Login.Patients
 
         [BindProperty]
         public Patient Patient { get; set; }
+        [BindProperty]
+        public string numhouse { get; set; }
+        [BindProperty]
+        public string street { get; set; }
+        [BindProperty]
+        public string district { get; set; }
+        [BindProperty]
+        public string city { get; set; }
+        [BindProperty]
+        public string country { get; set; }
        
         public IActionResult OnGet(string id)
         {
@@ -25,7 +37,11 @@ namespace Examining.Pages.Login.Patients
             }
 
             Patient = _service.GetPatient(id ?? default(string));
-            
+            numhouse = Patient.Address.NumHouse;
+            street = Patient.Address.Street;
+            district = Patient.Address.District;
+            city = Patient.Address.City;
+            country = Patient.Address.Country;
 
             if (Patient == null)
             {
@@ -42,7 +58,8 @@ namespace Examining.Pages.Login.Patients
             {
                 return Page();
             }
-
+            
+            Patient.Address = new Address(numhouse,street,district,city,country);
             try
             {
                 _service.UpdatePatient(Patient);
